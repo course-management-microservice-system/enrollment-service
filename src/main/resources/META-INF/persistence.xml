@@ -3,16 +3,26 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd">
     
-    <persistence-unit name="course-pu" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="enrollment-pu" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>com.nexusenroll.course.db.entities.course.CourseEntity</class>
+        
+        <class>com.nexusenroll.enrollment.db.entities.EnrollmentEntity</class>
+        <class>com.nexusenroll.enrollment.db.entities.WaitlistEntity</class>
+        <class>com.nexusenroll.enrollment.db.entities.GradeSubmissionEntity</class>
+        <class>com.nexusenroll.enrollment.db.entities.AdminAuditLogEntity</class>
+        
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/nexusenroll_course?useSSL=false&amp;serverTimezone=UTC"/>
-            <property name="jakarta.persistence.jdbc.user" value="course_app"/>
-            <property name="jakarta.persistence.jdbc.password" value="CourseDbSecurePass789!"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/nexusenroll_enrollment?useSSL=false&amp;serverTimezone=UTC"/>
+            <property name="jakarta.persistence.jdbc.user" value="enrollment_app"/>
+            <property name="jakarta.persistence.jdbc.password" value="EnrollmentDbSecurePass789!"/>
+            
             <property name="jakarta.persistence.schema-generation.database.action" value="update"/>
+            
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
         </properties>
     </persistence-unit>
 </persistence>
